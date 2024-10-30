@@ -1,0 +1,104 @@
+html {
+  font-size: 16px; /* Set a base font size */
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; 
+  line-height: 1.5;
+  color: #333;
+}
+.container{
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  width: 90%;
+}
+h1,h2, h3, h4, h5, h6{
+  margin-top: 0;
+}
+
+.post{
+  margin: 2rem 0rem;
+}
+.comments{
+  margin: 1rem;
+}
+
+.comments > .collapse-line{
+  border-left: 1px solid gray;
+  height: 100%;
+  padding: 1rem;
+}
+.comment{
+  padding: 1rem;
+  border:1px solid blue;
+  border-radius: 1rem;
+  margin: 1rem 0rem;
+}
+.comment > .header{
+  display: flex;
+  object-fit: contain;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment >.header > .name, .date{
+ color: rgb(65, 65, 202);
+}
+.comment >.header > .name{
+  font-weight: 600;
+ }
+ .comment >.header > .date{
+ }
+ .comment >.footer{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+ }
+
+
+.message{
+  font-size: 1.3rem;
+
+}
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: .2rem;
+}
+.icon-btn{
+  border: none;
+  background-color:transparent;
+}
+.blue{
+  color: blue;
+}
+.red{
+  color: red;
+}
+
+.hide{
+  display: none;
+}
+
+.nested-comments-stack{
+  width: 100%;
+}
+
+.comment-form-row{
+  display: flex;
+  gap: 0.5rem;
+
+}
