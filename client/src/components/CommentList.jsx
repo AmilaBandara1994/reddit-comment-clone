@@ -3,9 +3,7 @@ import Comment from './Comment'
 
 const CommentList = ({comments}) => {
   return comments.map(comment => (
-    <div key={comment.id}>
-        {console.log(comment)}
-        
+    <div key={comment.id}>        
         <Comment {...comment} />
     </div>
   ))

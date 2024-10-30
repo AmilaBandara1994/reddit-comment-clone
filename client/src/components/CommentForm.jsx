@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const CommentForm = ({loading, error, onSubmit, autoFoucus=false, initialValue=""}) => {
+const CommentForm = ({loading, error, onSubmit, autoFocus=false, initialValue=""}) => {
     const [message, setMessage] = useState(initialValue)
     function handleSubmit(e){
         e.preventDefault()
@@ -9,7 +9,7 @@ const CommentForm = ({loading, error, onSubmit, autoFoucus=false, initialValue="
   return (
     <form onSubmit={handleSubmit}>
         <div className='comment-form-row'>
-            <textarea autoFocus={autoFoucus} value={message} className='message-input' onChange={e => setMessage(e.target.value)}/>
+            <textarea autoFocus={autoFocus} value={message} className='message-input' onChange={e => setMessage(e.target.value)}/>
             <button className='btn' type='submit' disabled={loading}>{loading ? "Loading" : "Post"}</button>
         </div>
         <div className="error-msg">{error}</div>
