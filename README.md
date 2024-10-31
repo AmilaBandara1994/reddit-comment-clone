@@ -43,7 +43,7 @@ npm run dev
  ```
   #### client
  ```bash
-npm run dev
+npm start
  ```
 ### Database Seeding
 The seed file populates the database with initial data. This file is located in prisma/seed.js (or .ts if using TypeScript). You can modify this file to include data relevant to your needs.

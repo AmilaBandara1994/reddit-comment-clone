@@ -24,11 +24,79 @@ body {
   width: 90%;
 }
 h1,h2, h3, h4, h5, h6{
-  margin-top: 0;
+  margin: 0;
+}
+a{
+  text-decoration: none;
+}
+
+
+/* Header  */
+
+
+.navbar{
+  background-color: #333;
+  padding: 1rem;
+}
+.navList {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.navItem {
+  margin-right: 1rem;
+}
+.navLink{
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+
+/* Footer */
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  margin-top: 0.5rem;
+}
+
+.footer-links a {
+  color: #fff;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+
+.postlist{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:1rem;
 }
 
 .post{
-  margin: 2rem 0rem;
+  padding: 2rem 0 rem;
+  margin: 3rem 0rem;
 }
 .comments{
   margin: 1rem;

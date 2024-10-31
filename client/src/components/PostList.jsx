@@ -5,21 +5,22 @@ import { useAsync } from '../hooks/useAsync'
 
 const PostList = () => {
     const { loading, error,  value:posts } = useAsync(getPosts)
-    // const [ posts, setPosts] = useState([]);
-    // useEffect(()=>{
-    //     getPosts().then(setPosts)
-    // },[])
 
     if(loading) return <h1>Loading</h1>
     if(error) return <h1>{error}</h1>
-    return posts.map(post => (
-            <h3 key={post.id}>
-              <Link to={`/posts/${post.id}`}>
-                {post.title}
-              </Link>
-            </h3>
-         ))
-  
+    return (
+          <div className="postlist">
+             {posts.map(post => (
+              // <div>
+                <h3 key={post.id}>
+                    <Link to={`/posts/${post.id}`}>
+                        {post.title}
+                    </Link>
+                </h3>
+              // </div>
+            ))}
+          </div>
+    );
 }
 
 export default PostList
