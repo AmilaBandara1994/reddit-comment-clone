@@ -3,6 +3,7 @@ const prisma =  new PrismaClient()
 
 async function seed() {
     try {
+        await prisma.like.deleteMany()
         await prisma.post.deleteMany()
         await prisma.user.deleteMany()
         const david = await prisma.user.create({data: { name : "David"}})
@@ -32,7 +33,7 @@ async function seed() {
             data: {
                 parentId: comment1.id,
                 message : "i am nested comment1",
-                userId: david.id,
+                userId: john.id,
                 postId: post1.id
             }
         })
@@ -40,7 +41,7 @@ async function seed() {
         const comment3 = await prisma.comment.create({
             data: {
                 parentId: comment2.id,
-                message : "i am nested of  nestedcomment ",
+                message : "i am nested of  nested comment ",
                 userId: david.id,
                 postId: post1.id
             }
@@ -48,8 +49,60 @@ async function seed() {
         const comment4 = await prisma.comment.create({
             data: {
                 message : "i am root comment2",
-                userId: david.id,
+                userId: john.id,
                 postId: post1.id 
+            }
+        })
+
+        const comment5 = await prisma.comment.create({
+            data: {
+                parentId: comment4.id,
+                message : "Johnn your are correct",
+                userId: david.id,
+                postId: post1.id
+            }
+        })
+
+
+        const comment01 = await prisma.comment.create({
+            data: {
+                message : "i am root comment1 for post2 Where does it come from",
+                userId: david.id,
+                postId: post2.id
+            }
+        })
+
+        const comment02 = await prisma.comment.create({
+            data: {
+                parentId: comment01.id,
+                message : "i am nested comment1 in post Where does it come from",
+                userId: john.id,
+                postId: post2.id
+            }
+        })
+
+        const comment03 = await prisma.comment.create({
+            data: {
+                parentId: comment02.id,
+                message : "i am nested of nested comment in post Where does it come from ",
+                userId: david.id,
+                postId: post2.id
+            }
+        })
+        const comment04 = await prisma.comment.create({
+            data: {
+                message : "i am root comment2 in post Where does it come from",
+                userId: john.id,
+                postId: post2.id 
+            }
+        })
+
+        const comment05 = await prisma.comment.create({
+            data: {
+                parentId: comment04.id,
+                message : "Johnn your are correct nested comment for Where does it come from",
+                userId: david.id,
+                postId: post2.id
             }
         })
     console.log("Seeding completed successfully!");

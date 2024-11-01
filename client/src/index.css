@@ -99,19 +99,21 @@ a{
   margin: 3rem 0rem;
 }
 .comments{
-  margin: 1rem;
+  margin:  1rem 0rem 5rem;
 }
 
 .comments > .collapse-line{
-  border-left: 1px solid gray;
+  width: 0.09rem;
+  background-color: blue;
+  border: none;
   height: 100%;
-  padding: 1rem;
+  padding: 1rem 0 ;
 }
 .comment{
   padding: 1rem;
   border:1px solid blue;
   border-radius: 1rem;
-  margin: 1rem 0rem;
+  margin: 1rem 0rem ;
 }
 .comment > .header{
   display: flex;
@@ -119,7 +121,9 @@ a{
   align-items: center;
   justify-content: space-between;
 }
-
+.comment > .child-comment{
+  margin-left:1rem ;
+}
 .comment >.header > .name, .date{
  color: rgb(65, 65, 202);
 }
@@ -128,7 +132,7 @@ a{
  }
  .comment >.header > .date{
  }
- .comment >.footer{
+ .comment >.ft{
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -150,6 +154,12 @@ a{
   border: none;
   background-color:transparent;
 }
+.button-btn{
+  background-color: rgb(23, 64, 227);
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
 .blue{
   color: blue;
 }
@@ -163,8 +173,11 @@ a{
 
 .nested-comments-stack{
   width: 100%;
+  margin:0rem 1rem 0rem;
 }
-
+.nested-comments-stack > .comment{
+  margin:0rem ;
+}
 .comment-form-row{
   display: flex;
   gap: 0.5rem;

@@ -9,8 +9,18 @@ const CommentForm = ({loading, error, onSubmit, autoFocus=false, initialValue=""
   return (
     <form onSubmit={handleSubmit}>
         <div className='comment-form-row'>
-            <textarea autoFocus={autoFocus} value={message} className='message-input' onChange={e => setMessage(e.target.value)}/>
-            <button className='btn' type='submit' disabled={loading}>{loading ? "Loading" : "Post"}</button>
+            <textarea 
+              autoFocus={autoFocus} 
+              value={message} 
+              className='message-input' 
+              onChange={e => setMessage(e.target.value)}
+            />
+            <button 
+              className='btn' 
+              type='submit' 
+              disabled={loading}>
+                {loading ? "Loading" : "Post"}
+            </button>
         </div>
         <div className="error-msg">{error}</div>
     </form>

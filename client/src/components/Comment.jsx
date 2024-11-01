@@ -19,7 +19,7 @@ const Comment = ({id, message, user, createdAt, likeCount, likedByMe}) => {
   
   } = usePost()
   const childComments = getReplies(id)
-  const [areChildrenHidden, setAreChildrenHidden] = useState(false)
+  const [areChildrenHidden, setAreChildrenHidden] = useState(true)
   const [isReplying, setIsReplying] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
 
@@ -73,12 +73,12 @@ const Comment = ({id, message, user, createdAt, likeCount, likedByMe}) => {
           {message}
         </div>
         }
-        <div className="footer">
+        <div className="ft">
           <IconBtn 
             onClick={onToggleCommentLike}
             disabled={toggleLikeCommentFn.loading}
             Icon={likedByMe ? FaHeart : FaRegHeart}  
-            arial-lable={ likedByMe ? "Unlike":"like"} 
+            arial-label={ likedByMe ? "Unlike":"like"} 
             color={"blue"}>
             {likeCount}
           </IconBtn>
@@ -88,7 +88,7 @@ const Comment = ({id, message, user, createdAt, likeCount, likedByMe}) => {
             Icon={FaReply} 
             isActive={isReplying} 
             onClick={() => setIsReplying(prev => !prev)} 
-            arial-lable={isReplying? "Cancel Reply" : "Reply"} color={"blue"} 
+            arial-label={isReplying? "Cancel Reply" : "Reply"} color={"blue"} 
             />
 
             {user.id === currentUser.id && (
@@ -97,7 +97,7 @@ const Comment = ({id, message, user, createdAt, likeCount, likedByMe}) => {
                 Icon={FaEdit} 
                 color={"blue"} 
                 onClick={() => setIsEditing(prev => !prev)}
-                arial-lable={isReplying? "Cancel Edit" : "Edit"}
+                arial-label={isReplying? "Cancel Edit" : "Edit"}
               />
 
               <IconBtn 
@@ -105,7 +105,7 @@ const Comment = ({id, message, user, createdAt, likeCount, likedByMe}) => {
               color={"red"}
               disabled={deleteCommentFn.loading}
               onClick={onCommentDelete}
-              arial-lable="Delete" 
+              arial-label="Delete" 
               />
            </>
           )}
@@ -137,7 +137,7 @@ const Comment = ({id, message, user, createdAt, likeCount, likedByMe}) => {
               </div>
             </div>
 
-            <button className={`btn  ${!areChildrenHidden ? "hide" : ""}`} onClick={() =>setAreChildrenHidden(false)} >Show Replies</button>
+            <button className={`btn button-btn ${!areChildrenHidden ? "hide" : ""}`} onClick={() =>setAreChildrenHidden(false)} >Show Replies</button>
           </>
         )
       }

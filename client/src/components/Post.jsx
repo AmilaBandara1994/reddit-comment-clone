@@ -20,7 +20,7 @@ const Post = () => {
         <CommentForm loading={loading} error={error} onSubmit={onCommentCreate} />
             {rootComments != null && rootComments.length > 0 && 
             (
-              <div>
+              <div className='child-comment'>
                 <CommentList comments={rootComments} />
               </div>
             )}

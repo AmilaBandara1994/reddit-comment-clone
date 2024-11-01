@@ -15,11 +15,15 @@ export function PostProvider({children}){
     const {loading, error, value:post } =useAsync(() => getPost(id), [id])
     const [comments, setComment] = useState([])
     const commentsByParentId = useMemo(() => {
-        if(comments == null) return []
+        // if(comments == null) return []
         const group ={}
         comments.forEach(comment =>{
-            group[comment.parentId] ||= []
-            group[comment.parentId ].push(comment)
+            // group[comment.parentId] ||= []
+            // group[comment.parentId ].push(comment)
+            if (comment && comment.parentId !== undefined) {
+                group[comment.parentId] ||= [];
+                group[comment.parentId].push(comment);
+            }
         })
         return group
     },[comments])
@@ -35,15 +39,15 @@ export function PostProvider({children}){
     }
 
     function createLocalComment({comment}){
-        setComment(precomment => {
-            return [comment, ...precomment]
+        setComment(prevComment => {
+            return [comment, ...prevComment]
         })
     }
     
     
     function updateLocalComment({id, message}){
-        setComment(precomment => {
-            return precomment.map(comment =>{
+        setComment(prevComment => {
+            return prevComment.map(comment =>{
                 if(comment.id === id){
                     return {...comment, message}
                 }else{
@@ -54,8 +58,8 @@ export function PostProvider({children}){
     }
 
     function deleteLocalComment({id}){
-        setComment(precomment => {
-            return precomment.filter(comment => comment.id !== id )
+        setComment(prevComment => {
+            return prevComment.filter(comment => comment.id !== id )
                 
         })
     }
